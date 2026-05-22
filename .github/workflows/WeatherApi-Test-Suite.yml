@@ -1,0 +1,18 @@
+name: WeatherApi-Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  run-api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Postman CLI
+        run: curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Login to Postman
+        run: postman login --with-api-key ${{ secrets.WeatherAPI_KEY }}
+      - name: Run WeatherApi-Test-Suite
+        run: postman collection run '54348994-453838e1-f8c1-47c9-a4e1-6a0c370c83af' -e '54348994-024fda7f-b012-46aa-9233-b968bf226adb' --env-var "apiKey=0ddfeb2aa3d04734ad843042262105"
