@@ -1,0 +1,51 @@
+opencollection: 1.0.0
+
+info:
+  name: WeatherAPI Test Collection
+
+request:
+  scripts:
+    - type: after-response
+      code: "const statusCode = res.getStatus();\r
+
+        const errorCodes = [400, 401, 403, 404, 500, 502, 503];\r
+
+        \r
+
+        // 1. Console Warn on Errors\r
+
+        if (errorCodes.includes(statusCode)) {\r
+
+        \    console.warn('[ALERT] Bad Result Code: ' + statusCode);\r
+
+        }\r
+
+        \r
+
+        // 2. Success Tests\r
+
+        if (statusCode === 200) {\r
+
+        \    test('Status is 200 OK', () => { expect(res.getStatus()).to.equal(200); });\r
+
+        \    test('Response time under 1000ms', () => { expect(res.getResponseTime()).to.be.below(1000); });\r
+
+        \    test('JSON is not empty', () => {\r
+
+        \        const data = res.getBody();\r
+
+        \        expect(Object.keys(data).length).to.be.above(0);\r
+
+        \    });\r
+
+        }"
+
+docs:
+  content: Injected with universal error and performance tests.
+  type: text/markdown
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

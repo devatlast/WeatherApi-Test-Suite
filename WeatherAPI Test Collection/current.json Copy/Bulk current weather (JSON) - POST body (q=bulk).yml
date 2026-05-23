@@ -1,0 +1,324 @@
+info:
+  name: Bulk current weather (JSON) - POST body (q=bulk)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/current.json?key={{apiKey}}&q=Burkina Faso&aqi=no&pollen=no&lang=french"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Accept
+      value: application/json
+  params:
+    - name: key
+      value: "{{apiKey}}"
+      type: query
+    - name: q
+      value: Burkina Faso
+      type: query
+    - name: aqi
+      value: no
+      type: query
+    - name: pollen
+      value: no
+      type: query
+    - name: lang
+      value: french
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+        "locations": [
+          {
+            "q": "London",
+            "custom_id": "location1"
+          },
+          {
+            "q": "48.8567,2.3508",
+            "custom_id": "location2"
+          }
+        ]
+      }
+  auth:
+    type: apikey
+    key: key
+    value: "{{apiKey}}"
+    placement: header
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Bulk current weather response
+    request:
+      url: "{{baseUrl}}/current.json?q=bulk&aqi=no&pollen=no&lang=string&key=<API Key>"
+      method: POST
+      headers:
+        - name: Content-Type
+          value: application/json
+        - name: Accept
+          value: application/json
+      params:
+        - name: q
+          value: bulk
+          type: query
+        - name: aqi
+          value: no
+          type: query
+        - name: pollen
+          value: no
+          type: query
+        - name: lang
+          value: string
+          type: query
+        - name: key
+          value: <API Key>
+          type: query
+          description: "Added as a part of security scheme: apikey"
+      body:
+        type: json
+        data: |-
+          {
+            "locations": [
+              {
+                "q": "string",
+                "custom_id": "string"
+              },
+              {
+                "q": "string",
+                "custom_id": "string"
+              }
+            ]
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "key_0": 9623,
+            "key_1": 2164,
+            "key_2": 3205.4823401553235
+          }
+  - name: Bad request
+    request:
+      url: "{{baseUrl}}/current.json?q=bulk&aqi=no&pollen=no&lang=string&key=<API Key>"
+      method: POST
+      headers:
+        - name: Content-Type
+          value: application/json
+        - name: Accept
+          value: application/json
+      params:
+        - name: q
+          value: bulk
+          type: query
+        - name: aqi
+          value: no
+          type: query
+        - name: pollen
+          value: no
+          type: query
+        - name: lang
+          value: string
+          type: query
+        - name: key
+          value: <API Key>
+          type: query
+          description: "Added as a part of security scheme: apikey"
+      body:
+        type: json
+        data: |-
+          {
+            "locations": [
+              {
+                "q": "string",
+                "custom_id": "string"
+              },
+              {
+                "q": "string",
+                "custom_id": "string"
+              }
+            ]
+          }
+    response:
+      status: 400
+      statusText: Bad Request
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": 7112,
+              "message": "string"
+            }
+          }
+  - name: Unauthorized
+    request:
+      url: "{{baseUrl}}/current.json?q=bulk&aqi=no&pollen=no&lang=string&key=<API Key>"
+      method: POST
+      headers:
+        - name: Content-Type
+          value: application/json
+        - name: Accept
+          value: application/json
+      params:
+        - name: q
+          value: bulk
+          type: query
+        - name: aqi
+          value: no
+          type: query
+        - name: pollen
+          value: no
+          type: query
+        - name: lang
+          value: string
+          type: query
+        - name: key
+          value: <API Key>
+          type: query
+          description: "Added as a part of security scheme: apikey"
+      body:
+        type: json
+        data: |-
+          {
+            "locations": [
+              {
+                "q": "string",
+                "custom_id": "string"
+              },
+              {
+                "q": "string",
+                "custom_id": "string"
+              }
+            ]
+          }
+    response:
+      status: 401
+      statusText: Unauthorized
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": 7112,
+              "message": "string"
+            }
+          }
+  - name: Forbidden
+    request:
+      url: "{{baseUrl}}/current.json?q=bulk&aqi=no&pollen=no&lang=string&key=<API Key>"
+      method: POST
+      headers:
+        - name: Content-Type
+          value: application/json
+        - name: Accept
+          value: application/json
+      params:
+        - name: q
+          value: bulk
+          type: query
+        - name: aqi
+          value: no
+          type: query
+        - name: pollen
+          value: no
+          type: query
+        - name: lang
+          value: string
+          type: query
+        - name: key
+          value: <API Key>
+          type: query
+          description: "Added as a part of security scheme: apikey"
+      body:
+        type: json
+        data: |-
+          {
+            "locations": [
+              {
+                "q": "string",
+                "custom_id": "string"
+              },
+              {
+                "q": "string",
+                "custom_id": "string"
+              }
+            ]
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": 7112,
+              "message": "string"
+            }
+          }
+
+docs: |-
+  ## Bulk Current Weather Data
+
+  Retrieves real-time weather information for multiple locations in a single API call. This endpoint is optimized for fetching current weather data for multiple locations simultaneously.
+
+  ### Required Parameters
+  - **q** (query): Must be set to "bulk" to enable bulk request mode
+  - **key** (query): Your WeatherAPI.com API key for authentication
+
+  ### Request Body (JSON)
+  The request body must contain a `locations` array with location objects:
+  ```json
+  {
+    "locations": [
+      {
+        "q": "London",
+        "custom_id": "location1"
+      },
+      {
+        "q": "48.8567,2.3508",
+        "custom_id": "location2"
+      }
+    ]
+  }
+  ```
+
+  Each location object contains:
+  - **q**: Location identifier (city name, coordinates, zip code, IP address, etc.)
+  - **custom_id**: Optional custom identifier to match responses with requests
+
+  ### Optional Parameters
+  - **aqi**: Include air quality data (yes/no, default: no)
+  - **pollen**: Include pollen data (yes/no, default: no)
+  - **lang**: Response language code (e.g., "en", "es", "fr")
+
+  ### Common Use Cases
+  - Fetching weather for multiple store/office locations
+  - Dashboard displays with multiple city weather
+  - Comparing weather across different regions
+  - Reducing API calls by batching location requests
+
+  ### Response Highlights
+  Returns an object with weather data for each location, keyed by the custom_id or indexed sequentially. Each location includes current temperature, conditions, wind, humidity, and optional air quality data.

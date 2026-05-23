@@ -1,0 +1,94 @@
+info:
+  name: Search / autocomplete (JSON)
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseUrl}}/search.json?key={{apiKey}}&q=Ekiti"
+  headers:
+    - name: Accept
+      value: application/json
+  params:
+    - name: key
+      value: "{{apiKey}}"
+      type: query
+    - name: q
+      value: Ekiti
+      type: query
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Search results
+    request:
+      url: "{{baseUrl}}/search.json?q=string&key=<API Key>"
+      method: GET
+      headers:
+        - name: Accept
+          value: application/json
+      params:
+        - name: q
+          value: string
+          type: query
+        - name: key
+          value: <API Key>
+          type: query
+          description: "Added as a part of security scheme: apikey"
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "key_0": "string",
+              "key_1": "string",
+              "key_2": "string"
+            },
+            {
+              "key_0": "string"
+            }
+          ]
+
+docs: |-
+  ## Location Search / Autocomplete
+
+  Searches for locations and provides autocomplete suggestions based on partial input. Useful for implementing location search functionality in applications.
+
+  ### Required Parameters
+  - **q** (query): Search query - partial or complete location name (minimum 3 characters recommended)
+  - **key** (query): Your WeatherAPI.com API key for authentication
+
+  ### Optional Parameters
+  None for this endpoint
+
+  ### Common Use Cases
+  - Autocomplete dropdowns for location selection
+  - Location search functionality in weather apps
+  - Validating user-entered locations
+  - Finding location coordinates for other API calls
+  - Building location pickers with type-ahead suggestions
+
+  ### Response Highlights
+  Returns an array of matching locations with:
+  - Location name and region
+  - Country
+  - Latitude and longitude coordinates
+  - Location ID
+  - URL-friendly location identifier
+
+  Each result can be used as the 'q' parameter in other weather API endpoints.
