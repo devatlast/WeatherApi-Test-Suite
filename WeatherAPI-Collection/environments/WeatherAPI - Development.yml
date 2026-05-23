@@ -1,0 +1,8 @@
+name: WeatherAPI - Development
+variables:
+  - secret: true
+    name: apiKey
+  - name: baseUrl
+    value: https://api.weatherapi.com/v1
+  - name: location
+    value: "{{location}}"

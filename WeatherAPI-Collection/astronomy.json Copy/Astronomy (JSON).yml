@@ -1,0 +1,106 @@
+info:
+  name: Astronomy (JSON)
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseUrl}}/astronomy.json?key={{apiKey}}&q=New York&dt=2026-10-24"
+  headers:
+    - name: Accept
+      value: application/json
+  params:
+    - name: key
+      value: "{{apiKey}}"
+      type: query
+    - name: q
+      value: New York
+      type: query
+    - name: dt
+      value: 2026-10-24
+      type: query
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Astronomy response
+    request:
+      url: "{{baseUrl}}/astronomy.json?q=string&dt=1999-06-07&key=<API Key>"
+      method: GET
+      headers:
+        - name: Accept
+          value: application/json
+      params:
+        - name: q
+          value: string
+          type: query
+        - name: dt
+          value: 1999-06-07
+          type: query
+        - name: key
+          value: <API Key>
+          type: query
+          description: "Added as a part of security scheme: apikey"
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "key_0": 9623,
+            "key_1": 2164,
+            "key_2": 3205.4823401553235
+          }
+
+docs: |-
+  ## Astronomy Data
+
+  Retrieves astronomical information for a specified location and date. Get sunrise, sunset, moonrise, moonset, moon phases, and other celestial data.
+
+  ### Required Parameters
+  - **q** (query): Location identifier - can be:
+    - City name (e.g., "Cairo")
+    - Latitude/longitude (e.g., "30.0444,31.2357")
+    - US zip code (e.g., "10001")
+    - UK postcode (e.g., "SW1")
+    - IP address (e.g., "100.0.0.1")
+    - IATA airport code (e.g., "CAI")
+  - **key** (query): Your WeatherAPI.com API key for authentication
+  - **dt** (query): Date for astronomy data (format: yyyy-MM-dd)
+
+  ### Optional Parameters
+  None for this endpoint
+
+  ### Common Use Cases
+  - Photography planning (golden hour, blue hour)
+  - Astronomy and stargazing applications
+  - Outdoor activity scheduling
+  - Religious observance timing
+  - Agricultural planning
+  - Solar panel efficiency calculations
+  - Tide prediction (moon phase correlation)
+  - Event planning around daylight hours
+
+  ### Response Highlights
+  Returns detailed astronomical information including:
+  - Sunrise and sunset times
+  - Moonrise and moonset times
+  - Moon phase and illumination percentage
+  - Solar noon time
+  - Day length
+  - Twilight times (civil, nautical, astronomical)
+
+  Perfect for photographers, astronomers, outdoor enthusiasts, and anyone needing precise celestial timing information.
