@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: "{{baseUrl}}/timezone.json?key={{apiKey}}&q=string"
+  url: "{{baseUrl}}/timezone.json?key={{apiKey}}&q=Sokoto"
   headers:
     - name: Accept
       value: application/json
@@ -14,7 +14,7 @@ http:
       value: "{{apiKey}}"
       type: query
     - name: q
-      value: string
+      value: Sokoto
       type: query
   auth:
     type: apikey
