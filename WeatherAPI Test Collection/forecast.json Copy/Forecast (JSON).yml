@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: "{{baseUrl}}/forecast.json?key={{apiKey}}&q=Louisiana&days=7&dt=2026-05-22&unixdt=5705&hour=13&alerts=no&aqi=no&pollen=no&tp=15&current_fields=string&day_fields=string&hour_fields=string&et0=no&lang=en"
+  url: "{{baseUrl}}/forecast.json?key={{apiKey}}&q=Ekiti&days=7&dt=2026-10-24&unixdt=5705&hour=13&alerts=no&aqi=no&pollen=no&tp=15&current_fields=string&day_fields=string&hour_fields=string&et0=no&lang=en"
   headers:
     - name: Accept
       value: application/json
@@ -14,13 +14,13 @@ http:
       value: "{{apiKey}}"
       type: query
     - name: q
-      value: Louisiana
+      value: Ekiti
       type: query
     - name: days
       value: "7"
       type: query
     - name: dt
-      value: 2026-05-22
+      value: 2026-10-24
       type: query
     - name: unixdt
       value: "5705"

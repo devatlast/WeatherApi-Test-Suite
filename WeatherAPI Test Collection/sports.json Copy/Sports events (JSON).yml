@@ -5,13 +5,13 @@ info:
 
 http:
   method: GET
-  url: "{{baseUrl}}/sports.json?q=string"
+  url: "{{baseUrl}}/sports.json?q=United States"
   headers:
     - name: Accept
       value: application/json
   params:
     - name: q
-      value: string
+      value: United States
       type: query
   auth:
     type: apikey
