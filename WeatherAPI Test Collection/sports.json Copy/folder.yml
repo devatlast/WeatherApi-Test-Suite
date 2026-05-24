@@ -4,7 +4,11 @@ info:
   seq: 3
 
 request:
-  auth: inherit
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
 
 docs:
   content: Retrieves sports events, fixtures, and schedules filtered by location and sport type. Useful for sports applications, event planning platforms, and services that need to display local sporting events and their weather conditions.

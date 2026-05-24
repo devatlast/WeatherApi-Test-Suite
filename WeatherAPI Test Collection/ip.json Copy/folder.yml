@@ -4,7 +4,11 @@ info:
   seq: 4
 
 request:
-  auth: inherit
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
 
 docs:
   content: Retrieves geographical location information from IP addresses, including city, region, country, coordinates, and timezone data. Ideal for automatically detecting user location without explicit input, enabling location-based weather services and content personalization.

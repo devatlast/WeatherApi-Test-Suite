@@ -4,7 +4,11 @@ info:
   seq: 8
 
 request:
-  auth: inherit
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
 
 docs:
   content: Offers weather forecast data for up to 14 days ahead, including hourly and daily predictions for temperature, precipitation, wind, and other conditions. Essential for trip planning, event scheduling, and any application requiring future weather predictions.

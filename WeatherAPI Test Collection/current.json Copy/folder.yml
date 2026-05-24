@@ -4,7 +4,11 @@ info:
   seq: 1
 
 request:
-  auth: inherit
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
 
 docs:
   content: Delivers real-time current weather conditions including temperature, humidity, wind speed, precipitation, air quality, and pollen data for any location. Perfect for weather dashboards, mobile apps, and any application requiring up-to-the-minute weather information.

@@ -1,7 +1,7 @@
-name: WeatherAPI - Development
+name: WeatherAPI-Env
 variables:
-  - secret: true
-    name: apiKey
+  - name: apiKey
+    value: fe98c8d8b52348aaa8273708262405
   - name: baseUrl
     value: https://api.weatherapi.com/v1
   - name: location

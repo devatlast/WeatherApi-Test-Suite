@@ -5,13 +5,13 @@ info:
 
 http:
   method: GET
-  url: "{{baseUrl}}/alerts.json?q=kaduna"
+  url: "{{baseUrl}}/alerts.json?q=string"
   headers:
     - name: Accept
       value: application/json
   params:
     - name: q
-      value: kaduna
+      value: string
       type: query
   auth:
     type: apikey

@@ -4,7 +4,11 @@ info:
   seq: 6
 
 request:
-  auth: inherit
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
 
 docs:
   content: Provides marine weather conditions and tide information for coastal and ocean locations, including wave height, swell direction, water temperature, and tide times. Critical for maritime activities, fishing, surfing, boating, and coastal planning applications.

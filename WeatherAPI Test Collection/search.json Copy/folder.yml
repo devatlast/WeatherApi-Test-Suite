@@ -4,7 +4,11 @@ info:
   seq: 10
 
 request:
-  auth: inherit
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
 
 docs:
   content: Provides location search and autocomplete functionality based on partial input, returning matching cities, regions, and coordinates. Essential for implementing user-friendly location selection interfaces in weather applications and services.

@@ -4,7 +4,11 @@ info:
   seq: 7
 
 request:
-  auth: inherit
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
 
 docs:
   content: Retrieves active government-issued weather alerts and warnings for specified locations, including severe weather notifications from meteorological agencies. Critical for safety applications, emergency preparedness systems, and services requiring real-time severe weather notifications.

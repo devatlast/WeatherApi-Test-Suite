@@ -4,7 +4,11 @@ info:
   seq: 5
 
 request:
-  auth: inherit
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
 
 docs:
   content: Provides astronomical data including sunrise, sunset, moonrise, moonset times, moon phases, and moon illumination percentages for any location. Essential for applications requiring solar and lunar position data for photography planning, outdoor activities, or astronomical observations.

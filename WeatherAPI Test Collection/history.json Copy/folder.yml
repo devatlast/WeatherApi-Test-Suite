@@ -4,7 +4,11 @@ info:
   seq: 9
 
 request:
-  auth: inherit
+  auth:
+    type: apikey
+    key: x-api-key
+    value: "{{apiKey}}"
+    placement: header
 
 docs:
   content: Accesses historical weather data for past dates and date ranges, providing temperature, precipitation, wind, and other weather metrics from previous years. Perfect for weather analysis, trend identification, climate research, and applications requiring historical weather comparisons.
